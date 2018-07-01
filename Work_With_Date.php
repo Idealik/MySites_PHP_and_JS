@@ -62,5 +62,11 @@
     $y = "I <b>mark</b>";
 
     echo $x." ". $y; // concatenate string  with "."
+    echo "<br />";
+    
+    echo "Operations with logic"; 
+    echo "<br />";
 
+
+    
 ?>
