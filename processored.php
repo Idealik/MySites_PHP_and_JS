@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <h1> Your order </h1>
 </head>
 <body>
     
@@ -18,6 +19,7 @@
     $tireqty =  $_POST['tireqty'];
     $oilqty = $_POST['oilqty'];
     $sparkqty = $_POST['sparkqty'];
+    $adress = $_POST['adress'];
 
     $total_Amount = $tireqty + $oilqty + $sparkqty;
 
@@ -26,7 +28,8 @@
         echo "You did not order anything ";
     }
     else{
-        echo 'Order was made in ';
+        $date = date('j F Y');
+        echo 'Order was made in ';        
         echo date('j F Y');
         echo "<br />";
 
@@ -50,5 +53,31 @@
         $total_Summ += $total_Summ*NDS;
 
         echo " Total summ is <strong> $total_Summ $ </strong>";
+        echo "<br />";
+
+        echo "Adress: $adress";
+        echo "<br />";
+
+        //Here i try to write orders in my file "orders.txt"
+        $DOCUMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
+        
+        $outputstrings = "total amount = ". $total_Amount .
+         ", total summ = ".$total_Summ.
+         ", Oil = ".$oilqty .
+         ", Spark = ".$sparkqty.
+         ", Tire =  ".$tireqty.
+         ", Adress: ". $adress.
+         ", Date: ". $date;
+        echo $DOCUMENT_ROOT;
+        @ $fileOpen = fopen("$DOCUMENT_ROOT/mysite/orders.txt", 'ab'); 
+      //  @ $fileOpen = fopen("Z:/home/localhost/www/mySite/orders.txt", 'ab'); 
+        if(!$fileOpen){
+            echo "<p> Server is not working now. Please try later </p>";
+            exit;
+        }
+        fwrite($fileOpen,$outputstrings);
+        fclose($fileOpen);
+
+        echo "<p>Order was recorded </p>";
     }
 ?>

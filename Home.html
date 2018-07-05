@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Site</title>
+        <link rel="stylesheet" href="style.css" type="text/css"> 
     </head>
     <body>
 
@@ -9,28 +10,33 @@
                 <form action="processored.php" method="post">
                     <table border ="0">
                         <tr bgcolor = red >
-                            <td width="150">Tovar</td>
+                            <td width="150">Products</td>
                             <td width="15">Count</td>
                         </tr>
-            
+                        
                         <tr>
                             <td>Tire</td>
-                            <td algin ="center"><input type="text" name="tireqty" size="3" maxlength="3"/></td>
+                            <td algin ="center"><input type="text" name="tireqty" size="3" maxlength="3" id = Textbox /></td>
                         </tr>
             
                         <tr>
                                 <td>Oil</td>
-                                <td algin ="center"><input type="text" name="oilqty" size="3" maxlength="3"/></td>
+                                <td algin ="center"><input type="text" name="oilqty" size="3" maxlength="3" id = Textbox /></td>
                         </tr>
                         
                         <tr>
                                 <td>Spark</td>
-                                <td algin ="center"><input type="text" name="sparkqty" size="3" maxlength="3"/></td>
+                                <td algin ="center"><input type="text" name="sparkqty" size="3" maxlength="3" id = Textbox /></td>
                         </tr>
-            
                         <tr>
-                            <td colspan="2" align="center"><input type="submit" value="Send order"></td>
+                            <td>Adress</td>
+                            <td algin ="center"><input type="text" name="adress" size="15" id = Textbox /></td>
                         </tr>
+
+                        <tr>
+                                <td colspan="2" align="center"><input type="submit" value="Send order"></td>
+                        </tr>
+              
                     </table>
                 </form>
             </div>
