@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-    <h1> Your order </h1>
-</head>
-<body>
-    
-</body>
-</html>
-
 <?php
 
     $tireqty =  $_POST['tireqty'];
@@ -28,6 +12,7 @@
         echo "You did not order anything ";
     }
     else{
+        echo  "<h1> Your order </h1>";
         $date = date('j F Y');
         echo 'Order was made in ';        
         echo date('j F Y');
@@ -67,9 +52,9 @@
          ", Spark = ".$sparkqty.
          ", Tire =  ".$tireqty.
          ", Adress: ". $adress.
-         ", Date: ". $date;
-        echo $DOCUMENT_ROOT;
-        @ $fileOpen = fopen("$DOCUMENT_ROOT/mysite/orders.txt", 'ab'); 
+         ", Date: ". $date."\r\n";
+
+        @ $fileOpen = fopen("$DOCUMENT_ROOT/mysite/order/orders.txt", 'ab'); 
       //  @ $fileOpen = fopen("Z:/home/localhost/www/mySite/orders.txt", 'ab'); 
         if(!$fileOpen){
             echo "<p> Server is not working now. Please try later </p>";
@@ -79,5 +64,8 @@
         fclose($fileOpen);
 
         echo "<p>Order was recorded </p>";
+
+        require_once "pictures/visual_Pic.php";
+        
     }
 ?>

@@ -1,3 +1,7 @@
 #Textbox{
-    background-color: gainsboro;
+    background-color: black;
 }
+.block1{
+        border: solid 1px blue;
+    }
+
