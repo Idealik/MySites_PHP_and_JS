@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Feedback Page</title>
+    <h1>Client feedback</h1>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <p>You can send us your feedback</p>
+    <form action="processoredFeedback.php" method="POST">
+        <table class="FeddbackTabl" >
+             <tr>
+                <td>Your name</td>            
+              </tr>
+
+             <tr>
+                <td><input type="text" size="30" name="UserName" id="Textbox" required> </td>
+              </tr>
+       </table>
+     
+        <table class="FeddbackTabl">
+                <tr>
+                    <td>Your e-mail</td>            
+                </tr>
+    
+                <tr>
+                    <td><input type="text" size="30" name="email" id="Textbox" required> </td>
+                </tr>
+        </table>
+
+        <table class="FeddbackTabl">
+                <tr>
+                    <td>Feedback</td>            
+                </tr>
+    
+                <tr>
+                    <td><input type="text" style="width:350px; height:150px"  name="feedback" id="Textbox" required> </td>
+                </tr>
+        </table>
+
+        <button type="submit">Send your feedback</button>
+    </form>
+</body>
+</html>

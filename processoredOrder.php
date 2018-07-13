@@ -66,6 +66,7 @@
         echo "<p>Order was recorded </p>";
 
         require_once "pictures/visual_Pic.php";
+     
         
     }
 ?>

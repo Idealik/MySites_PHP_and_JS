@@ -1,7 +1,16 @@
 #Textbox{
-    background-color: black;
+    background-color: rgb(241, 216, 216);
 }
 .block1{
         border: solid 1px blue;
     }
-
+.picture{
+    border: solid 1px blue;
+}
+img{
+    height: 8cm;
+    width:auto;
+}
+.FeddbackTabl{
+    margin-bottom: 10px;
+}

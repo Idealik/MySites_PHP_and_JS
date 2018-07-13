@@ -10,15 +10,15 @@
     <?php    
     $pictures = array('door.jpg', 'tire.jpg', 'spark.jpg', 'oil.jpg', 'gasket.jpg');
             shuffle($pictures);
-        ?>
-        <div align="center" id = picture>
+    ?>
+        <div class = picture>
                 <table width=100%>
                     <tr>
                         <?php                        
                             for($i=0; $i<3; $i++){
-                                echo "<td align = \"center\"><img src =\"/mySite/pictures/";
+                                echo "<td align = \"center\"> <a href=\"recomend.php\"><img src =\"/mySite/pictures/";
                                 echo $pictures[$i];
-                                echo "\"/></td>";                            
+                                echo "\"/></a></td>";                            
                             }
                         ?>
                     </tr>
