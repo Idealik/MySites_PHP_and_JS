@@ -1,0 +1,25 @@
+    .header-class{
+        background: black;
+        width: 100%;
+    }
+    
+    h1{ 
+        text-align: center;
+        color: white;   
+    }
+
+    .text-place{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-place input{
+        width: 300px;
+        margin:  5px auto;
+    }
+
+    .text-place button{
+        width: 150px;
+        margin:  5px auto;
+
+    }
