@@ -1,0 +1,13 @@
+body{
+    background:rgb(181, 245, 242);
+}
+
+h1{ 
+    text-align: center;
+}
+
+.main-menu{
+
+    display: flex;
+    flex-direction: column;
+}

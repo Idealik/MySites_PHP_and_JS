@@ -1,6 +1,11 @@
+    body{
+        background: rgb(181, 245, 242);
+    }
     .header-class{
         background: black;
-        width: 100%;
+        width: 60%;
+        margin: 0 auto;
+        padding: 5px 0px;
     }
     
     h1{ 
@@ -11,6 +16,10 @@
     .text-place{
         display: flex;
         flex-direction: column;
+        background:rgb(192, 192, 147);
+        width: 30%;
+        margin: 0 auto;
+        padding: 25px 1px;
     }
 
     .text-place input{
@@ -20,6 +29,5 @@
 
     .text-place button{
         width: 150px;
-        margin:  5px auto;
-
+        margin: 5px auto;
     }

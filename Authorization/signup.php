@@ -42,7 +42,7 @@
             $user = R::dispense('users');
             $user->login = $login;
             $user->email = $email;
-            $user->password = md5($password);
+            $user->password = password_hash($password, PASSWORD_DEFAULT);
             R::store($user);
             
             echo 'Registration is successfull';

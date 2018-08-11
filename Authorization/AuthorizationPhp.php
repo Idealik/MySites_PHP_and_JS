@@ -6,8 +6,6 @@
         $email  = trim($_POST['e-mail']);
         $data_sent = $_POST['bt_registred'];
         
-     
-
     if(isset($data_sent)){
         // процесс авторизации 
         $errors = array();
@@ -17,9 +15,12 @@
             //логин существует
             if(password_verify($password,$user->password)){
                 // все хорошо, логиним пользователя
+                $_SESSION['logged_user'] = $user;
             }
             else{
                 $errors[] = "Password is wrong";
+                echo "AuthorizationPhp is successfull ";  
+                
             }
         }
         else{
@@ -28,7 +29,8 @@
 
         if(empty($errors)){
             //все хорошо
-            echo "AuthorizationPhp is successfull"; 
+            echo "AuthorizationPhp is successfull </br>"; 
+            echo "You can go on the  <a href='index.php'> main </a> page";
         }
         else{
             echo '<p>'.array_shift($errors).'</p>';
