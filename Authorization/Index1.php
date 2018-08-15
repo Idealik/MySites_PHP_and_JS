@@ -14,9 +14,9 @@
 <a href="logout.php">Exit</a>
 
 <?php else : ?>
-    <div class = "main-menu">
     <h1>You are not authorized</h1>
+    <div class = "main-menu">
     <input type="button" value="Registration" onClick='location.href="signup.php"'>
-    <input type="button" value="Registration" onClick='location.href="AuthorizationPhp.php"'>
+    <input type="button" value="Authorization" onClick='location.href="AuthorizationPhp.php"'>
     </div>
 <?php endif; ?>

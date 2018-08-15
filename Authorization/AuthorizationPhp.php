@@ -10,7 +10,7 @@
         // процесс авторизации 
         $errors = array();
         $user = R::findOne('users', 'login = ?', array($login));
-
+        
         if($user){
             //логин существует
             if(password_verify($password,$user->password)){
@@ -18,9 +18,7 @@
                 $_SESSION['logged_user'] = $user;
             }
             else{
-                $errors[] = "Password is wrong";
-                echo "AuthorizationPhp is successfull ";  
-                
+                $errors[] = "Password is wrong";                
             }
         }
         else{
@@ -50,7 +48,7 @@
 </head>
 <body>
     <header class= "header-class">
-        <h1>Here you can authorization on our site</h1>
+        <h1>Here you can authorization on the site</h1>
     </header>
     <section class="login-place">
         <form action="AuthorizationPhp.php" method="POST" >

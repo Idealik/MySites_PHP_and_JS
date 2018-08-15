@@ -1,0 +1,61 @@
+    body{
+        background: rgb(181, 245, 242);
+    }
+    .header-class{
+        background: black;
+        margin: 0 auto;
+        display: flex;
+        justify-content:  space-between;
+        padding: 25px;
+    }
+
+    .header-class h1{
+        padding: 20px 60px;
+        background-color: yellow;
+        color: black;
+    }
+
+    .basket img{
+        widows: 85px;
+        height: 65px;
+        margin-left: 25px;
+    }
+   
+    .basket p{
+        color: white;
+    }
+    
+    .text-place{
+        display: flex;
+        flex-direction: column;
+        background:rgb(224, 224, 198);
+        width: 50%;
+        margin: 0 auto;
+        padding: 25px 1px;
+    }
+
+    .text-place input{
+        width: 300px;
+        margin:  5px auto;
+    }
+
+    .picture-place button{
+        width: 150px;
+        margin: 5px auto;
+    }
+    
+    .picture-place {
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .picture-place img{
+        width: 400px;
+        height: 300px;
+    }
+    
+    .card{
+        width: 400px;
+        height: 300px;
+        margin: 40px auto;
+    }

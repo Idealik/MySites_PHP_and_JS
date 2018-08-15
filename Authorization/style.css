@@ -3,7 +3,6 @@
     }
     .header-class{
         background: black;
-        width: 60%;
         margin: 0 auto;
         padding: 5px 0px;
     }
@@ -16,8 +15,8 @@
     .text-place{
         display: flex;
         flex-direction: column;
-        background:rgb(192, 192, 147);
-        width: 30%;
+        background:rgb(224, 224, 198);
+        width: 50%;
         margin: 0 auto;
         padding: 25px 1px;
     }
