@@ -38,6 +38,7 @@
         }
 
         if(empty($errors)){
+            
             //все хорошо
             $user = R::dispense('users');
             $user->login = $login;

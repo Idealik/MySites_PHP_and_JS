@@ -2,22 +2,22 @@
 // ПОФИКСИТЬ: при обновлении страницы каунт стакается
 use RedBeanPHP\Util\Dump;
 include('db.php');
-include('ViewCounter.php');
+include('HelpFunction.php');
+include('ip.php');
 $car_array = array('img_for_Basket\BMW.jpg','img_for_Basket\JAGA.jpg','img_for_Basket\LADA.jpg' );
 
-//id - arry нужен для записи его потом в куку
-$id_arr = array();
+//узнаю ip клиента для уникальности в БД
 
-$count;
+$ip_client = get_Ip_Clietn();
+setcookie('ip_client',$ip_client,time()+7200*6);
+
 //узнаю айди кнопки или машины, на которую кликлунл пользователь
-
-$id = $_GET['car_id'];
-$id++; // потому что нумерация в бд с 1, и массив с 0, не работает с isset
-
+$id = $_POST['car_id'];
 var_dump($id);
 // запрашиваем инфу из бд
 $cars = R::findOne('cars', 'id = ?', array($id)); // array работает так - мы получаем айди с формы и запрашиваем такой в БД
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,33 +32,53 @@ $cars = R::findOne('cars', 'id = ?', array($id)); // array работает та
             <?php
             //  Отображение счетчика 
                 if(isset($id)){
-                    //получили id и начинаем обрабатывать 
-                    if($cars->car_count > 20){                        
-                        $count=  People_counter($count);
-                        echo '<p>Заказано машин: '.$count.'</p>';
+                    // анти инъекция ?
+                    $id = (int)$id;
+                    //первый заказ пошел, а значит можно создать куки для жизни корзины
+                    setcookie('live','live', time()+20);
 
-                        // записываем номера заказов для куки.
-                        $id_arr[] = $id;
-                        // создаем куку с номерами заказов
-                        setcookie('orders', $id_arr, time()+7200, '/');
+                    if(($id!=0)&&(is_int($id))){
                         
+                        //получили id и начинаем обрабатывать 
+                        if($cars->car_count > 20){                        
+                            $count=  People_counter($count);
+                            
+                            // создаем базу данных для заказов и записываем туда id заказа
+                        
+                            $order = R::dispense('orders');
+                            $order->order_id = $id;
+                            $order->ip_client = $ip_client;
+                            $id = R::store( $order ); 
+                          
+                        echo '<p>Заказано машин: '.$count.'</p>';                
                     }
                     else{
                         echo  '<p>Заказано машин: '.$_COOKIE['count'].'</p>';
                         echo '<p>Этого нет на складе </p>';      
                     }
-                  
-                }    
+
+                }
+                else{
+                    echo "Что-то пошло не так, скорее всего id не число";
+                }
+              }
+              else{
+                //при заходе обновляем куки
+                Destroy_cokie_counter();
+                Destroy_cokie_id();
+                
+                // создаем массив с индексами покупок
+                $count;
+            }  
              ?>
             <div class="basket-img">
-
                <?php //отправляемся в корзину ?>
                  <a href="summ_all.php"><img src="img_for_Basket\basket.png" alt=""></a>
             </div>
         </div>
     </header>
     <section class="login-place">
-            <form action="Basket.php" method="GET" >
+            <form action="Basket.php" method="POST" >
                 <div class="picture-place">                
                     <?php
                             //отрисовываю картинки для покупки
@@ -71,7 +91,7 @@ $cars = R::findOne('cars', 'id = ?', array($id)); // array работает та
                                 echo "</div>";
 
                                 echo "<div class = 'bottom'>";
-                                echo "<button name='car_id' value='".$i."'>Добавить в корзину </button>";
+                                echo "<button  type='submit' name='car_id' value='".($i+1)."'>Добавить в корзину </button>";
                                 echo "</div>";
 
                             echo "</div>";

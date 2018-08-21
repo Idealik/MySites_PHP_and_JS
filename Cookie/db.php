@@ -4,5 +4,4 @@
     R::setup('mysql:host=localhost;dbname=mybase',
     'root', '' );
     
-    session_start();
  ?>

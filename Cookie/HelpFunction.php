@@ -19,5 +19,20 @@
         return $count;
     }
 
+    function Destroy_cokie_counter(){
+        setcookie("count", $count,time()-100, '/');
+    }
 
+    function Destroy_cokie_id(){
+        setcookie("orders", serialize($id_arr), time()-1, '/');
+    }
+
+    function clear_Bd($ip){
+        $order_ids =  R::find('orders', 'ip_client=?', array($ip));
+             
+           foreach($order_ids as $order_id ){
+              R::trash($order_id);
+           }
+        }
+        
 ?>
