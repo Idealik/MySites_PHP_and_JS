@@ -37,7 +37,7 @@
      var_dump($all_price);
      echo '<br>';
 
-    // в цикле запрашиваю айди покупаемой машины и смотрю на IP
+    // запрашиваю айди покупаемой машины и с IP клиента, полученного из куки клиента
     $order_ids =  R::find('orders', 'ip_client=?', array($ip));
      
     foreach($order_ids as $order_id ){

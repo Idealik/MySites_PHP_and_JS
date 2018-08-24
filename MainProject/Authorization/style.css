@@ -1,0 +1,21 @@
+body{
+    background: url(img/anonim.jpg);
+}
+
+.text-place{    
+    display: flex;    
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+    padding: 120px;    
+    background: #a08f8f;   
+    margin-top: 150px;
+}
+
+.text-place input{    
+    margin-bottom: 20px;
+}
+.text-place img{
+    width: 150px;
+    margin: auto;
+}
