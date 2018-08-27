@@ -19,3 +19,19 @@ body{
     width: 150px;
     margin: auto;
 }
+.text-place h1{
+    margin: auto;
+}
+.text-place h1:hover{
+    transform: scale(1.1);
+}
+.text-place a{
+    margin: auto;
+    color: white;
+}
+.text-place a:hover{
+    color: black;
+}
+.text-place a{
+    text-decoration: none;
+}

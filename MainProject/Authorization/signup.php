@@ -11,6 +11,7 @@
         <div class="registration-container">
             <form action="signup.php" method="POST" >
                 <div class="text-place">
+                    <h1> <a href="/mySite/MainProject/index1.php">IDEAL</a></h1>
                     <img src="img/signup.png">
                     <input type="text" placeholder="login" name="login" value="<?php echo @$login;?>" >
                     <input type="password" placeholder="password" name="password">
